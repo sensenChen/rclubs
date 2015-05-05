@@ -13,3 +13,4 @@ if(isset($_SESSION['myusername']))
     header("location: http://rclubs.me/chat");
 }
 ?>
+

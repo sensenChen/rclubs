@@ -1,4 +1,4 @@
-<?php
+                                                                <?php
 $host="localhost"; // Host name
 $username="rclubsme_user"; // Mysql username
 $password="rpi123"; // Mysql password
@@ -67,6 +67,8 @@ else {
 
 ?>
 
+                            
+                            
                             
                             
                             

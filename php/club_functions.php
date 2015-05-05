@@ -99,6 +99,9 @@ function validURL($text)
 
     // Strip out anything we haven't been able to convert
     $text = preg_replace('/[^-\w]+/', '', $text);
+    
+    if(strlen($text) == 0)
+    	$text = md5($text);
 
     return $text;
 }
@@ -135,6 +138,29 @@ function insertClub($clubname, $location, $meetingdays, $starttimes, $endtimes) 
 	$result = mysql_query($sql);
 	return true;
 }
+
+
+function changeDayTime($clubid, $meetingdays, $starttimes, $endtimes) //Adds the club to the database
+{
+	mysql_select_db("rclubsme_users")or die("cannot select DB");
+	$tbl_name = 'Clubs';
+        
+	
+	$daytime ="";
+	for ($i = 0; $i < count($meetingdays); $i++) {
+		$starttime = date("G:i", strtotime($starttimes[$i])); 
+        	$endtime = date("G:i", strtotime($endtimes[$i]));
+		if($i>0) 
+			$daytime .= ';';
+		$daytime .= $meetingdays[$i] . '_' . $starttime . '_' . $endtime;
+	} 
+	
+	
+	$sql = "UPDATE $tbl_name SET day_time='$daytime' WHERE clubid='$clubid'";
+	$result = mysql_query($sql);
+	return true;
+}
+
 
 function addClub($userid, $clubid) //Adds club to the user's list
 {

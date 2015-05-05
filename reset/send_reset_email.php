@@ -1,4 +1,4 @@
-<?php
+                                                                                                                                <?php
 $host="localhost"; // Host name
 $username="rclubsme_user"; // Mysql username
 $password="rpi123"; // Mysql password
@@ -32,14 +32,27 @@ $mykey = crypt($mykey);
 
 echo "A link to reset your password has been sent to " . $myemail . "<br/>";
 
-$query = "INSERT INTO $tbl_name (resetkey, email) VALUES ('$mykey','$myemail')";
+$query = "SELECT * FROM $tbl_name WHERE email='$myemail'";
+$result = mysql_query($query)or die(mysql_error());
+
+if(mysql_num_rows($result) == 0) {
+  $query = "INSERT INTO $tbl_name (resetkey, email) VALUES ('$mykey','$myemail')";
+}
+else {
+  $query = "UPDATE $tbl_name SET resetkey='$mykey' WHERE email='$myemail'";
+}
 $data = mysql_query($query)or die(mysql_error());
+
 
 if ($data)
 {
     //Send reset email
-    $mail_body = "Your reset key is " . $mykey . "<br/> Click on this link to reset your password: <a>http://rclubs.me/reset_form.php</a>";
+    $mail_body = "Your reset key is " . $mykey . "      Click on this link to reset your password: http://rclubs.me/reset/reset_form.php";
     mail($myemail,"rClubs: Reset Password Link", $mail_body); 
 }
-?>                    
+?>
+                            
+                            
+                            
+                            
                             

@@ -3,10 +3,15 @@
     padding: 0;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
-
+/*html {
+    background-color: #3b3b3b;
+    height: 100%;
+}*/
 body {
     width: 100%;
-   }
+    /*font: 0.75em/1.5em Century Gothic;
+    color: #333333;*/
+}
 
 
 a:hover {
@@ -25,6 +30,208 @@ a {
     text-decoration: none;
 }
 
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    width: 100%;
+    height: 70px;
+}
+
+/* navbar style */
+#nav span {
+    display: none;
+}
+
+img.logo2{
+    width: 100px;
+    vertical-align: middle;
+    margin-top: 15px;
+}
+#nav, #nav ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#nav {
+    background-color: #262626;
+    border-bottom: 5px solid #00c0e4;
+    float: right;
+    margin-left: 0%;
+    margin-right: 0%;
+    position: relative;
+    width: 100%;
+}
+
+#nav ul.subs {
+    background-color: #262626;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    color: #333333;
+    display: none;
+    left: 0;
+    padding: 2%;
+    position: absolute;
+    top: 75px;
+    width: 96%;
+}
+
+#nav > li {
+    border-bottom: 5px solid transparent;
+    float: left;
+    margin-bottom: -5px;
+    text-align: left;
+    -moz-transition: all 300ms ease-in-out 0s;
+    -ms-transition: all 300ms ease-in-out 0s;
+    -o-transition: all 300ms ease-in-out 0s;
+    -webkit-transition: all 300ms ease-in-out 0s;
+    transition: all 300ms ease-in-out 0s;
+}
+#nav li a {
+    display: block;
+    text-decoration: none;
+    -moz-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    -ms-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    -o-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    -webkit-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
+    white-space: normal;
+}
+#nav > li > a {
+    color: #c1c1c1;
+    display: block;
+    font-size: 1.3em;
+    line-height: 70px;
+    padding: 0 15px;
+}
+#nav > li:hover > a, #nav > a:hover {
+    background-color: #00c0e4;
+    color: #FFFFFF;
+}
+#nav li.active > a {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+
+/* navbar submenu */
+/* will be used in future */
+#nav li:hover ul.subs {
+    display: block;
+}
+#nav ul.subs > li {
+    display: inline-block;
+    float: none;
+    padding: 10px 1%;
+    vertical-align: top;
+    width: 33%;
+}
+#nav ul.subs ul li a{
+    line-height: 20px;
+    color: white;
+}
+#nav ul.subs ul li a:hover {
+    color: #00c0e4;
+}
+#nav ul.subs > li a {
+    color: #777777;
+    line-height: 20px;
+}
+#nav ul li a:hover {
+    color: #00c0e4;
+}
+#nav ul.subs > li > a {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+#nav ul.subs > li li {
+    float: none;
+    padding-left: 8px;
+    -moz-transition: padding 150ms ease-out 0s;
+    -ms-transition: padding 150ms ease-out 0s;
+    -o-transition: padding 150ms ease-out 0s;
+    -webkit-transition: padding 150ms ease-out 0s;
+    transition: padding 150ms ease-out 0s;
+}
+#nav ul.subs > li li:hover {
+    padding-left: 15px;
+}
+
+
+
+
+/* responsive navbar rules */
+@media all and (max-width : 700px) {
+    #nav > li {
+        float: none;
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+    #nav ul.subs {
+        position: relative;
+        top: 0;
+    }
+    #nav li:hover ul.subs {
+        display: none;
+    }
+    #nav li #s1:target + ul.subs,
+    #nav li #s2:target + ul.subs {
+        display: block;
+    }
+
+    #nav ul.subs > li {
+        display: block;
+        width: auto;
+    }
+}
+
+/* header search bar style */
+#search2 {
+    position: relative;
+    vertical-align: middle;
+    line-height: 70px;
+    margin-top: 20px;
+}
+
+
+#search2 input[type="text"] {
+    background: url(../images/search-white.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Century Gothic;
+    color: #d7d7d7;
+    width:90px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); 
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#search2 input[type="text"]:focus {
+    background: url(../images/search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 200px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
 #homesearchbar {
     margin-top: 3vw;
     padding: 1vw;
@@ -36,8 +243,9 @@ a {
 }
 
 .logo {
+    position: relative;
     margin-top: 7vw;
-
+    z-index: -10;
 }
 
 .heading {
@@ -196,6 +404,13 @@ a {
     text-align: left;
 }
 
+#allClubs 
+{
+    top: 0%;
+    left 47%;
+    text-decoration: none;
+}
+
 #signup {
     top: 0;
     left: 90%;
@@ -329,6 +544,12 @@ a {
     font-size: 1.25vw;
 }
 
+.allClubs_text
+{
+  padding: 15px 111px 41px;
+  font-size: 2.11vw;
+}
+
 .clubbar {
     height: 3vw;
     width: 100%;
@@ -362,6 +583,13 @@ a {
     text-align:center;
     vertical-align: middle;
     line-height: 3vw;
+}
+
+.clubnameinput {
+	height: 6vw;
+	text-align: center;
+	font-size: 5vw;
+	margin-top:4vw;
 }
 
 .clubnav ul {
@@ -486,6 +714,14 @@ a {
     color: #333;
     /*float: right;*/
 }
+
+#clubformright {
+    width: 40%;
+    text-align: left;
+    color: #333;
+    /*float: right;*/
+}
+
   
 #wrapper {
     margin:0 auto;

@@ -1,6 +1,7 @@
+
 //THIS PAGE IS NOT NECESSARY ANYMORE
-//THE REGULAR HOME PAGE AND THIS HOME PAGE ARE INTGRATED   
-<?php
+//THE REGULAR HOME PAGE AND THIS HOME PAGE ARE INTGRATED                      
+   <?php
     session_start();
 
     //make sure user is signed in
@@ -56,4 +57,5 @@
         </div>
     </body>
 </html>                                
+                            
                             

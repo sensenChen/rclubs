@@ -8,31 +8,21 @@
     $username = $_SESSION['myusername'];
     $clubname=$_POST['clubname'];
     $location=$_POST['location'];
-    $meetingday1=$_POST['meetingday1'];
-    $starttime1=$_POST['starttime1'];
-    $endtime1=$_POST['endtime1'];
-    $meetingday2=$_POST['meetingday2'];
-    $starttime2=$_POST['starttime2'];
-    $endtime2=$_POST['endtime2'];
-    $meetingday3=$_POST['meetingday3'];
-    $starttime3=$_POST['starttime3'];
-    $endtime3=$_POST['endtime3'];    
+  
 	
-	$meetingdays = array($meetingday1);
-	$starttimes = array($starttime1);
-	$endtimes = array($endtime1);
+	$meetingdays = array();
+	$starttimes = array();
+	$endtimes = array();
 	
-	if ($meetingday2!="" && isset($starttime2) && isset($endtime2)) {
-		array_push($meetingdays, $meetingday2);
-		array_push($starttimes, $starttime2);
-		array_push($endtimes, $endtime2);
+	for($i=1; $i<11 && ($_POST['meetingday'.$i])!="" && isset($_POST['starttime'.$i]) && isset($_POST['endtime'.$i]);$i++) {
+		$meetingday = $_POST['meetingday'.$i];
+		$starttime = $_POST['starttime'.$i];
+		$endtime = $_POST['endtime'.$i];
+		array_push($meetingdays, $meetingday);
+		array_push($starttimes, $starttime);
+		array_push($endtimes, $endtime);
 	}
 	
-	if ($meetingday3!="" && isset($starttime3) && isset($endtime3)) {
-		array_push($meetingdays, $meetingday3);
-		array_push($starttimes, $starttime3);
-		array_push($endtimes, $endtime3);
-	}
 		
 
 	

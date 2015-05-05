@@ -53,6 +53,31 @@
     {
         //wait half a second
         sleep(.5);
-        header('location:index.php');
+        header('location:index.php?invalid=true');
     }
 ?>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            

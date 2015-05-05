@@ -24,40 +24,31 @@
     $textnotification = $db_field['textnotification'];
 ?>
 <?php 
-    include ( "../header.php" ); 
+    include ( "../header/header.php" ); 
 ?>                          
-                            
 <html>
-    <body>
-        <center>
-            <div class="account" id="accountname"><?php echo "$username"; ?></div>
-            <div class="accountbutton" id="accountedit"><a href="http://rclubs.me/account/edit.php"><p>Edit</p></a></div>
-            <div class="account" id="accountleft">
-                <?php 
-                    echo "<p>First Name</p>";
-                    echo "<p>Last Name</p>";
-                    echo "<p>E-mail</p>";
-                    echo "<p>Phone Number</p>";
-                ?>
-            </div>
-            <div class="account" id="accountmid">
-                <?php 
-                    echo "<p>|</p>";
-                    echo "<p>|</p>";
-                    echo "<p>|</p>";
-                    echo "<p>|</p>";
-                ?>
-            </div>
-            <div class="account" id="accountright">
-                <?php 
-                    if($firstname == ""){ echo "<p>N/A</p>"; } else { echo "<p>$firstname</p>"; }
-                    if($lastname == ""){ echo "<p>N/A</p>"; } else { echo "<p>$lastname</p>"; }
-                    if($email == ""){ echo "<p>N/A</p>"; } else { echo "<p>$email</p>"; }
-                    if($phonenumber == ""){ echo "<p>N/A</p>"; } else { echo "<p>$phonenumber</p>"; }
-
-                ?>
-            </div>
-        </center>
-    </body>
-</html>               
+<body>
+    <form method="post" action="account.php">
+        <div class="account" id="accountname"><?php echo "$username"; ?></div>
+        <div class="question">
+            <input  name="myfirstname" type="text" value = <?php echo $firstname ?> />
+            <label>First Name</label>
+        </div>
+        <div class="question">
+            <input  name="mylastname" type="text" value = <?php echo $lastname ?> />
+            <label>Last Name</label>
+        </div>
+        <div class="question">
+            <input  name="myemail" type="text" value = <?php echo $email ?> />
+            <label>Email</label>
+        </div>
+        <div class="question">
+            <input  name="myphonenumber" type="text" value = <?php echo $phonenumber ?> />
+            <label>Phone Number</label>
+        </div>
+        <button>Save</button>
+    </form>
+    
+</body>
+</html>            
                             

@@ -1,58 +1,15 @@
 <?php
     session_start();
 ?>
-
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-        <title>About rClubs</title>
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="../js/autocomplete.js"></script>
-    </head>   
+<?php 
+  include ( "../header/header.php" ); 
+?>
+<!--
+<html>  	
     <body>
-
-          <div class="heading"> 
-            <a href="http://rclubs.me"><img class="homebutton" src="../images/rClubs.png"></a>
-        </div> 
-        
-            
-        <div id="search" class="ui-widget">
-            <form method="post" action="../php/display_result.php">
-                <input name="mysearch" id="searchbar" placeholder="Search for Clubs"/>
-            </form>
-        </div>    
-               
-        <a href="http://rclubs.me/about"><div id="about" class="button">About</div></a>
-        <a href="http://rclubs.me/feedback.php"><div id="contact" class="button">Feedback</div></a>
-        <a href="http://rclubs.me/login"><div id="login" class="button">
-                <?php
-                	if (!isset($_SESSION['myusername']))
-    				{echo("Login");}
-    		?> 
-        </div></a>
-        <a href="http://rclubs.me/signup"><div id="signup" class="button">
-                <?php
-                	if (!isset($_SESSION['myusername']))
-    				{echo("Signup");}
-    		?> 
-    	</div></a>
-        <a href="http://rclubs.me/myclubs/"><div id="myclubs" class="button">
-                <?php
-                	if (isset($_SESSION['myusername']))
-    				{echo("MyClubs");}
-    		?> 
-        </div></a>
-        <a href="http://rclubs.me/login/logout.php"><div id="logout" class="button">
-                <?php
-                	if (isset($_SESSION['myusername']))
-    				{echo("Logout");}
-    		?> 
-        </div></a>
         <div class="logo">
                 <center>
-                    <img src="../images/rClubs.png" width="20%;">
+                    <img src="../images/rClubs3.png" width="20%;">
                 </center>
             </div>
         <center>
@@ -73,4 +30,20 @@
         </p>
       
     </body>
+</html>
+-->                 
+<html>  	
+	<body>                
+	<div class="page-wrapper">
+        <header class="banner">
+            	<h1><div><img  id="logoo" src="../images/rClubs3.png"></div>
+                <span id="banner-text"><span id="first-letter">A</span> website focused on allowing everyone to create or join a club with ease.</span>
+                <span id="banner-text"><span id="first-letter">M</span>anage and organize your club or organization for free.</span>
+                <span id="banner-text"><span id="first-letter">J</span>oin a club you're interested in and stay up to date with it.</span>
+                <span id="banner-text">Simple <span id="first-letter">&</span> Easy.</span>
+            	</h1>
+            	<a href="http://rclubs.me/signup" class="signup-button">SIGNUP</a>
+        </header>
+    	</div>
+	</body>
 </html>

@@ -1,31 +1,48 @@
-                                                                                                <?php 
-    include ( "../clubpage/header.php" ); 
+                                                                <?php 
+    session_start();
     require_once('../php/club_functions.php');
+    require_once('../php/calendar_functions.php');
 ?>
-
+<?php 
+  include ( "../header.php" ); 
+?>
 <?php
-    connectToDatabase();
-
+    connectToDatabase();	
     if(isset($_GET['c'])) {   //Get club name from link
         $myurl = mysql_real_escape_string($_GET['c']);   //Store club name in variable
-
+    	
+        	
         //Check if club is valid and in database, then get information about the club
         if(preg_match("/^[a-zA-Z0-9_\-]+$/", $myurl)){
-            $check = mysql_query("SELECT urlname, name, location, day_time FROM Clubs WHERE urlname = '$myurl'");
+            $check = mysql_query("SELECT urlname, name, location, day_time, public FROM Clubs WHERE urlname = '$myurl'");
             if(mysql_num_rows($check)==1){
                 $get = mysql_fetch_assoc($check);
                 $clubname = $get['name'];
                 $location = $get['location'];
                 $day_time = $get['day_time'];
-
                 $hours = getDaytimeHours($day_time);
-            }
-            else{
+                $public = $get['public'];
+                
+                list($myuserid, $myclubid) = getUserAndClubId($_SESSION['myusername'], $myurl);
+                $isMember = isUserAdded($myuserid, $myclubid);
+                $isAdmin = isAdmin($myuserid, $myclubid);
+                
+                $client = new Google_Client();
+		accessToken($client);
+		createClubCalendar($client, $myclubid);
+		
+		$check = mysql_query("SELECT calendar FROM Clubs WHERE urlname = '$myurl'");
+		$get = mysql_fetch_assoc($check);
+		$calendar = $get['calendar'];
+	}
+                
+           }else{
                 echo "<strong>Club does not exist!</strong>";
                 exit();
             }
         }
-    }
+
+   
 ?>
 
 <div class="clubbar">
@@ -67,45 +84,10 @@ else
 ?>
 </div>
 
-<div class="clubbanner"><p><?php echo "$clubname"; ?></p></div>
 
-<div class="container">
-    <div id="navcontainer" class="clubnav" style="background: #99ccff;"> 
-    <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Posts</a></li>
-        <li><a href="#">Members</a></li>
-        <li><a href="#">Photos</a></li>
-    </ul>
-    <br style="clear:right"/>
-    </div>
-</div>
 
-<!--Print club information from database-->  
-<div class="clubabout">
-    <table id="clubtable" border="1" width="25%" cellpadding="4" cellspacing="3">
-    <th colspan="2">
-        <h3><br><?php echo "Club Info"; ?></h3>
-    </th>
-    <tr>
-        <td>Meeting Day(s)</td>
-        <td><?php 	
-        	echo $hours;
-            ?>
-        </td>
-    </tr>
-    <tr>
-        <td>Location</td>
-        <td><?php echo "$location"; ?></td>
-    </tr>
-    </table>
-</div>
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+<span id="pageType">
+	<?php
+		require_once('../clubpage/about.php');
+	?>
+</span>

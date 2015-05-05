@@ -1,4 +1,4 @@
-<?php
+                                                                                                                                                                                                <?php
 $host="localhost"; // Host name
 $username="rclubsme_user"; // Mysql username
 $password="rpi123"; // Mysql password
@@ -22,7 +22,7 @@ $myemail = mysql_real_escape_string($myemail);
 
 //Stores all the error messages as an array
 $errors = array();
-/*
+
 //make sure user entered a username
 if (empty($myusername))
 {
@@ -42,11 +42,11 @@ if ($mypassword != $repassword)
 }
 
 //Make sure the email is an RPI email
-$test = '@rpi.edu';
+/*$test = '@rpi.edu';
 if(strlen($myemail) < strlen($test) || substr_compare($myemail, $test, -strlen($test), strlen($test)) != 0)
 {
     $errors[] = "You didn't enter an RPI email.<br/>";
-}
+}*/
 
 //Checks to see if username already exists
 $sql = "SELECT * FROM $tbl_name WHERE username='$myusername'";
@@ -70,7 +70,7 @@ if (!empty($errors)) {
         $error_message .=  $error;
     }
     exit($error_message);
-}*/
+}
 
 //Encrypt the password
 $mypassword = md5($mypassword);
@@ -102,3 +102,14 @@ if($data)
 }
 
 ?>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            

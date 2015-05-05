@@ -1,6 +1,6 @@
-<?php
+                                <?php
     session_start();
-?>                                 
+?>                                                      
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="../css/main.css"/>
@@ -36,7 +36,7 @@
     				{echo("Signup");}
     		?> 
     	</div></a>
-        <a href="http://rclubs.me/myclubs/"><div id="myclubs" class="button">
+        <a href="http://rclubs.me/myclubs"><div id="myclubs" class="button">
                 <?php
                 	if (isset($_SESSION['myusername']))
     				{echo("MyClubs");}
@@ -51,5 +51,8 @@
         
     </body>
 </html>
+                            
+                            
+                            
                             
                             
