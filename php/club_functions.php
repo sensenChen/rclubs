@@ -5,8 +5,8 @@ function connectToDatabase()
 {
     //MySQL database information
     $host="localhost"; 
-    $username="rclubsme_user";
-    $password="rpi123"; 
+    $username="username";
+    $password="password"; 
     $db_name="rclubsme_users"; 
     $tbl_name="Clubs";
 
